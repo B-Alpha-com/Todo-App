@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Josefin+Sans:wght@100&family=New+Tegomin&display=swap");
+body {
+  background-color: #cbc5f2;
+}
+.master {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.container {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  display: block;
+  max-height: max-content;
+  width: 500px;
+  border: 2px solid;
+  background-color: darkorchid;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 100px;
+  box-shadow: 5px 10px 2px blue;
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    display: block;
+    max-height: max-content;
+    /* height: 500px; */
+    width: 300px;
+    border: 2px solid;
+    background-color: rgba(77, 70, 165, 0.4);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 10px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+.h1 {
+  font-size: 4rem;
+  color: #ffff;
+  font-family: "Josefin Sans", sans-serif;
+}
+@media only screen and (max-width: 500px) {
+  .h1 {
+    font-size: 2rem;
+    color: #ffff;
+    font-family: "Josefin Sans", sans-serif;
+  }
+}
+.text {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+  font-family: "Dancing Script", cursive;
+}
+@media only screen and (max-width: 500px) {
+  .text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: "Dancing Script", cursive;
+  }
+}
+
+.inputDiv {
+  margin-top: 40px;
+  width: 100%;
+}
+.input {
+  padding: 14px 20px;
+  border-right: none;
+  border-color: #ffffff;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 1.2rem;
+  font-style: normal;
+}
+@media only screen and (max-width: 500px) {
+  .input {
+    padding: 14px 20px;
+    border-right: none;
+    border-color: #ffffff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 1rem;
+  }
+}
+.btn-Add {
+  padding-top: 6px;
+  padding-bottom: 14.7px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.btn-Add .bs-Icon {
+  font-size: 20px;
+  padding: 0px 0px;
+}
+@media only screen and (max-width: 500px) {
+  .btn-Add {
+    padding-top: 8px;
+    padding-bottom: 17px;
+    background-color: #ffffff;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-Add .bs-Icon {
+    font-size: 20px;
+    padding: 0px 0px;
+  }
+}
+.task-div {
+  border: 2px solid orange;
+  background-color: darkslateblue;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  transition: all 2s ease;
+}
+.task-div:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+@media only screen and (max-width: 500px) {
+  .task-div {
+    border: 2px solid orange;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    height: 40px;
+  }
+
+  .task-div .eachTask {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslateblue;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+}
+.task-div .eachTask {
+  flex: 50%;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.bs-Icon {
+  font-size: 30px;
+  font-weight: 700;
+}
+.btn-done,
+.remove-Btn {
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Styling of header */
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: #1e1d1c;
+}
+.fa-icon {
+  font-size: 25px;
+  color: #ffffff;
+}
+.date {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "New Tegomin", serif;
+  color: #ffffff;
+}
+.today {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "PT Sans", sans-serif;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
