@@ -3,6 +3,12 @@ import "./App.css";
 import { BsPlusSquare } from "react-icons/bs";
 import { GiCheckMark } from "react-icons/gi";
 import { ImCancelCircle } from "react-icons/im";
+import { ImHome } from "react-icons/im";
+
+import { GrTask } from "react-icons/gr";
+import { FaRegRegistered } from "react-icons/fa";
+import { BiEdit } from "react-icons/bi";
+
 import Header from "./Header";
 
 class App extends Component {
@@ -13,6 +19,7 @@ class App extends Component {
       userTasks: [],
       splicedArray: [],
       taskDone: -1,
+      display: false,
     };
   }
   handleInput = (e) => {
@@ -44,13 +51,41 @@ class App extends Component {
     this.setState({ userTasks: newTask });
   };
   handleTaskDone = (e, currentIndex) => {
-    if (currentIndex) {
-      this.setState({ taskDone: currentIndex });
-      if (this.state.taskDone === currentIndex) {
-        this.setState({ taskDone: -1 });
-      }
+    this.setState({ taskDone: currentIndex });
+
+    // if (currentIndex) {
+    //   this.setState({ taskDone: currentIndex });
+    //   if (this.state.taskDone === currentIndex) {
+    //     this.setState({ taskDone: -1 });
+    //   }
+    // }
+  };
+  handleMouseOver = (e) => {
+    this.setState({ display: true });
+  };
+  handleClick = (e) => {
+    if (this.state.display === true) {
+      this.setState({ display: false });
     }
   };
+  componentDidMount() {
+    fetch("https://od-api-demo.oxforddictionaries.com/api/v1/domains/en", {
+      method: "GET",
+    }).then((resp) => console.log(resp));
+    // .then((data) => {
+    //   const info = data;
+    //   console.log(info);
+    // })
+  }
+
+  // async function randomFacts() {
+  //   const resp = await fetch("https://api.fungenerators.com", {
+  //     GET: "fact/random",
+  //   });
+  //   const data = await resp.json();
+  //   console.log(data);
+  // }
+
   render() {
     const {
       handleInput,
@@ -58,18 +93,46 @@ class App extends Component {
       handleRemoveTask,
       handleTaskDone,
       onKeypress,
+      handleClick,
+      handleMouseOver,
     } = this;
-    const { value, userTasks, taskDone } = this.state;
+    const { value, userTasks, taskDone, display } = this.state;
+
     return (
       <div className="App">
-        <Header />
-        <div className="master">
+        <Header handleMouseOver={(e) => handleMouseOver(e)} />
+        <div
+          className="sideBar"
+          style={{
+            display: display === true ? "block" : "none",
+          }}
+        >
+          <ul className="link-ul">
+            <li className="link-div">
+              <ImHome className="icon" />
+              Home
+            </li>
+            <li className="link-div">
+              <GrTask className="tasks icon" />
+              Tasks
+            </li>
+            <li className="link-div">
+              <FaRegRegistered className="icon" />
+              Register
+            </li>
+            <li className="link-div">
+              <BiEdit className="icon" />
+              Edit task
+            </li>
+          </ul>
+        </div>
+        <div className="master" onClick={(e) => handleClick(e)}>
           <div className="container">
             <div className="text-div">
               <h1 className="h1">Make a todo list</h1>
               <p className="text">
                 completing
-                <br /> your task is out joy
+                <br /> your task is our joy
               </p>
             </div>
             <div className="inputDiv">

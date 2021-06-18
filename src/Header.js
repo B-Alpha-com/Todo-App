@@ -1,7 +1,7 @@
 import React from "react";
 import { FaBars } from "react-icons/fa";
 
-const Header = () => {
+const Header = ({ handleMouseOver }) => {
   const date = new Date();
   var day = date.getDate();
   var month = date.getMonth();
@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <div className="header-container">
-      <FaBars className="fa-icon" />
+      <FaBars className="fa-icon" onMouseOver={handleMouseOver} />
       <div className="today">Today</div>
       <div className="date">{`${day}/${month + 1}/${year}`}</div>
     </div>
